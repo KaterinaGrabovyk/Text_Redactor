@@ -207,7 +207,7 @@ namespace Lab6_1
 
         //----------------------------------------------------------------------
         //ƒÛÍÛ‚‡ÌÌˇ Ù‡ÈÎ‡------------------------------------------------------
-        /*private StringReader m_myReader;
+        private StringReader m_myReader;
         private int m_PrintPageNumber;
         private void MenuFilePrint()
         {
@@ -225,91 +225,14 @@ namespace Lab6_1
             }
             m_myReader.Close();
         }
-        private void PrintFile()
+        private void ‰ÛÍÛ‚‡ÚËToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            m_PrintPageNumber = 1;
-
-            string strText = this.textBox1.Text;
-            m_myReader = new StringReader(strText);
-
-            Margins margins = new Margins(100, 50, 50, 50);
-            printDocument1.DefaultPageSettings.Margins = margins;
-
-            if (printDialog1.ShowDialog() == DialogResult.OK)
+            PrintDialog printDialog = new PrintDialog();
+            if (printDialog.ShowDialog() == DialogResult.OK)
             {
-                this.printDocument1.Print();
+                printDocument1.Print();
             }
-            m_myReader.Close();
-
         }
-        private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
-        {
-            int lineCount = 0;
-            float linesPerPage = 0;
-            float yLinePosition = 0;
-
-            string currentLine = null;
-
-            Font printFont = this.textBox1.Font;
-
-
-            SolidBrush printBrush = new SolidBrush(Color.Black);
-
-
-            float leftMargin = e.MarginBounds.Left;
-
-            float topMargin = e.MarginBounds.Top +
-               3 * printFont.GetHeight(e.Graphics);
-
-
-            linesPerPage = (e.MarginBounds.Height -
-               6 * printFont.GetHeight(e.Graphics)) /
-               printFont.GetHeight(e.Graphics);
-
-
-            while (lineCount < linesPerPage &&
-               ((currentLine = m_myReader.ReadLine()) != null))
-            {
-
-                yLinePosition = topMargin + (lineCount *
-                  printFont.GetHeight(e.Graphics));
-
-
-                e.Graphics.DrawString(currentLine, printFont, printBrush,
-                  leftMargin, yLinePosition, new StringFormat());
-
-
-                lineCount++;
-            }
-
-
-            if (currentLine != null)
-            {
-                e.HasMorePages = true;
-                m_PrintPageNumber++;
-            }
-
-
-            else
-                e.HasMorePages = false;
-
-
-            printBrush.Dispose();
-
-        }
-        private void ÔÓÔÂÂ‰Ì≥ÈœÂÂ„Îˇ‰ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            m_PrintPageNumber = 1;
-
-            string strText = this.textBox1.Text;
-            m_myReader = new StringReader(strText);
-            Margins margins = new Margins(100, 50, 50, 50);
-            printDocument1.DefaultPageSettings.Margins = margins;
-            printPreviewDialog1.ShowDialog();
-
-            m_myReader.Close();
-
-        }*/
         //----------------------------------------------------------------------
 
         private void ‚Ëı≥‰ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -346,7 +269,7 @@ namespace Lab6_1
                 {
                     case DialogResult.Yes:
                         if (Save() != 0)
-                            e.Cancel = true; 
+                            e.Cancel = true;
                         break;
                     case DialogResult.No:
                         ;
@@ -362,6 +285,11 @@ namespace Lab6_1
         private void Ô‡‡ÏÂÚË—ÚÓ≥ÌÍËToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pageSetupDialog1.ShowDialog();
+        }
+
+        private void ÔÂ˜‡Ú¸ToolStripButton_Click(object sender, EventArgs e)
+        {
+            ‰ÛÍÛ‚‡ÚËToolStripMenuItem_Click(this, e);
         }
     }
 }

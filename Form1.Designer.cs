@@ -137,6 +137,7 @@
             друкуватиToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.P;
             друкуватиToolStripMenuItem.Size = new Size(410, 32);
             друкуватиToolStripMenuItem.Text = "Друкувати...";
+            друкуватиToolStripMenuItem.Click += друкуватиToolStripMenuItem_Click;
             // 
             // попереднійПереглядToolStripMenuItem
             // 
@@ -264,6 +265,7 @@
             печатьToolStripButton.Name = "печатьToolStripButton";
             печатьToolStripButton.Size = new Size(29, 24);
             печатьToolStripButton.Text = "&Печать";
+            печатьToolStripButton.Click += печатьToolStripButton_Click;
             // 
             // toolStripSeparator
             // 
@@ -345,9 +347,6 @@
             // pageSetupDialog1
             // 
             pageSetupDialog1.Document = printDocument1;
-            // 
-            // printDocument1
-            // 
             // 
             // printDialog1
             // 
